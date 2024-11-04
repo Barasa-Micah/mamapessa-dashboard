@@ -1,0 +1,360 @@
+.settings-page {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light Mode - Default */
+body.light-mode {
+    background-color: #F8FAFC;
+    color: #333;
+}
+
+body.light-mode .settings-page {
+    background-color: #F8FAFC;
+    color: #333;
+}
+
+body.light-mode .settings-section {
+    background-color: #FFFFFF;
+    color: #333;
+}
+
+body.light-mode .section-save-button {
+    background-color: #5B1400;
+    color: #FFF;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #333;
+    color: #FFF;
+}
+
+body.dark-mode .settings-page {
+    background-color: #444;
+    color: #FFF;
+}
+
+body.dark-mode .settings-section {
+    background-color: #555;
+    color: #FFF;
+}
+
+body.dark-mode .section-save-button,
+body.dark-mode .reset-button,
+body.dark-mode .delete-account-btn {
+    background-color: #333;
+    color: #FFF;
+    border: 1px solid #555;
+}
+
+body.dark-mode .theme-option.selected {
+    background-color: #333;
+    border-color: #FFF;
+    color: #FFF;
+}
+
+/* Page Header */
+h2 {
+    font-size: 24px;
+    color: #5B1400;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Section Styles */
+.settings-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.settings-section h3 {
+    font-size: 18px;
+    color: #5B1400;
+    margin-bottom: 10px;
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.setting-item label {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Success Message */
+.success-message {
+    padding: 10px;
+    color: #0CDE0C;
+    background-color: #E6F7E6;
+    border: 1px solid #B3E6B3;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+body.dark-mode .success-message {
+    background-color: #6B8068;
+    color: #E6F7E6;
+}
+
+/* Profile Picture Section */
+.profile-picture {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-img-preview {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #E5E5E5;
+}
+
+/* Password Input */
+.password-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.password-input-wrapper input {
+    padding: 8px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.password-input-wrapper button {
+    background: none;
+    border: none;
+    color: #E58E1A;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Theme Options */
+.theme-options {
+    display: flex;
+    gap: 10px;
+}
+
+.theme-option {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #CCC;
+    background-color: #F0F0F0;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.theme-option:hover {
+    background-color: #E8E8E8;
+}
+
+.theme-option.selected {
+    border-color: #E58E1A;
+    color: #E58E1A;
+    background-color: #FFF5E6;
+}
+
+/* Buttons */
+.section-save-button {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #5B1400;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.section-save-button:hover {
+    background-color: #4A0E00;
+}
+
+.reset-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFF;
+    background-color: #DC3545;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.reset-button:hover,
+.delete-account-btn:hover {
+    background-color: #C82333;
+}
+
+
+.account-deletion h3 {
+    color: #DC3545;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.account-deletion p {
+    color: #666;
+    font-size: 14px;
+}
+
+.delete-account-btn {
+    padding: 10px 15px;
+    background-color: #DC3545;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+/* Modal Styling */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #FFF;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+body.dark-mode .modal-content {
+    background: #555;
+    color: #FFF;
+}
+
+.modal-content h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.modal-button {
+    margin: 10px 5px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.modal-button.confirm {
+    background-color: #DC3545;
+    color: white;
+}
+
+.modal-button.cancel {
+    background-color: #CCC;
+    color: #333;
+}
+
+body.dark-mode .modal-button.cancel {
+    background-color: #777;
+    color: #FFF;
+}
+
+.modal-button.confirm:hover {
+    background-color: #C82333;
+}
+
+.modal-button.cancel:hover {
+    background-color: #B3B3B3;
+}
+
+/* Error Message Styling */
+.error-message {
+    color: #DC3545;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .settings-page {
+        padding: 15px;
+    }
+
+    .section-save-button,
+    .reset-button {
+        width: 100%;
+    }
+
+    .setting-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .profile-picture {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile-img-preview {
+        width: 50px;
+        height: 50px;
+    }
+
+    .theme-option {
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 20px;
+    }
+
+    .settings-section {
+        padding: 15px;
+    }
+
+    .section-save-button,
+    .reset-button,
+    .delete-account-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .modal-content {
+        padding: 15px;
+    }
+}

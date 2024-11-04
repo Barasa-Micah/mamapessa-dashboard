@@ -1,0 +1,756 @@
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    background-color: #F8FAFC;
+}
+
+/* Dark Mode Background and Text Colors */
+body.dark-mode {
+    background-color: #1e1e2f;
+    color: #e0e0e0;
+}
+
+body.dark-mode .dashboard-container {
+    background-color: #1e1e2f;
+}
+
+body.dark-mode .sidebar {
+    background-color: #2c2c3a;
+    color: #e0e0e0;
+}
+
+body.dark-mode .sidebar .nav-item {
+    color: #e0e0e0;
+}
+
+body.dark-mode .sidebar .nav-item.active {
+    background-color: #ff7f32;
+    color: #ffffff;
+}
+
+body.dark-mode .main-content {
+    background-color: #1e1e2f;
+    color: #e0e0e0;
+}
+
+body.dark-mode .header {
+    background-color: #1e1e2f;
+    color: #e0e0e0;
+    border-bottom: 1px solid #333344; /* Subtle divider line */
+}
+
+body.dark-mode .search-bar {
+    background-color: #333344;
+    color: #e0e0e0;
+    border-radius: 20px;
+    padding: 8px 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .search-bar input {
+    color: #e0e0e0;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+/* Card and Insight Styles */
+body.dark-mode .card,
+body.dark-mode .insight-card {
+    background-color: #2c2c3a;
+    color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .card .percentage,
+body.dark-mode .insight-card .percentage {
+    background-color: #ff7f32;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Tooltip and Modal in Dark Mode */
+body.dark-mode .icon {
+    filter: brightness(0.8) invert(1);
+}
+
+body.dark-mode .header-icons img,
+body.dark-mode .profile-img {
+    filter: brightness(0.8) invert(1);
+}
+
+body.dark-mode .modal-content {
+    background-color: #333344;
+    color: #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Text Color Adjustments */
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode h5, 
+body.dark-mode h6 {
+    color: #ffffff;
+}
+
+body.dark-mode p, 
+body.dark-mode span {
+    color: #d0d0d0;
+}
+
+/* Insight Card Headers */
+body.dark-mode .insight-card h4 {
+    color: #e0e0e0;
+    font-weight: 600;
+}
+
+/* Chart Styling for All Charts */
+body.dark-mode .recharts-wrapper {
+    color: #e0e0e0;
+}
+
+body.dark-mode .recharts-cartesian-axis-tick text {
+    fill: #c0c0c0; /* Axis tick color */
+}
+
+body.dark-mode .recharts-tooltip-wrapper {
+    background-color: #333344;
+    color: #e0e0e0;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .insight-card h4 {
+    color: #e0e0e0; /* Set to a light color for visibility in dark mode */
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Specific Chart Colors for Lines and Bars */
+body.dark-mode .recharts-line {
+    stroke: #ff7f32;
+}
+
+body.dark-mode .recharts-bar {
+    fill: #ff7f32;
+}
+
+/* Gradients for Line and Bar Charts */
+body.dark-mode .insight-card.savings-overview .recharts-line path,
+body.dark-mode .insight-card.savings-overview .recharts-line linearGradient {
+    stop-color: #ff7f32;
+}
+
+body.dark-mode .insight-card.customer-activity .recharts-line path,
+body.dark-mode .insight-card.customer-activity .recharts-line linearGradient {
+    stop-color: #ff7f32;
+}
+
+body.dark-mode .insight-card.loan-overview .recharts-bar path,
+body.dark-mode .insight-card.loan-overview .recharts-bar linearGradient {
+    stop-color: #ff7f32;
+}
+
+/* Ensure axis and tick colors are visible */
+body.dark-mode .recharts-cartesian-axis-tick line,
+body.dark-mode .recharts-cartesian-axis-tick text {
+    fill: #e0e0e0;
+}
+
+/* Legend color styling */
+body.dark-mode .legend-color {
+    border-radius: 50%;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+}
+
+
+
+
+.sidebar {
+    width: 20%;
+    background-color: #E5E5E5;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.sidebar.closed {
+    width: 60px;
+}
+
+/* Sidebar Toggle Button Positioned on the Left */
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.sidebar-toggle img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Logo Section */
+.logo-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding-left: 15px;
+    margin-bottom: 40px;
+}
+
+.logo-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #5B1400;
+    margin: 0;
+    padding: 0;
+}
+
+/* Hide text in collapsed sidebar */
+.sidebar.closed .logo-text {
+    display: none;
+}
+
+/* Navigation */
+.nav-links, .support-section, .help-section {
+    margin-top: 20px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.nav-item:hover {
+    background-color: #FFC341;
+    border-radius: 8px;
+    transform: scale(1.02);
+}
+
+.nav-item img {
+    width: 20px;
+    height: auto;
+}
+
+.nav-item span {
+    font-weight: normal;
+    display: inline;
+    transition: opacity 0.3s;
+}
+
+.sidebar.closed .nav-item span {
+    opacity: 0;
+}
+
+.active {
+    background-color: #E58E1A;
+    color: #FFF;
+    border-radius: 8px;
+}
+
+/* Main Content */
+.main-content {
+    width: 80%;
+    padding: 20px;
+    overflow-y: auto;
+    transition: width 0.3s ease;
+}
+
+.dashboard-container.sidebar-closed .main-content {
+    width: 95%;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #F8FAFC;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #F0F0F0;
+    padding: 8px 16px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.search-bar img {
+    width: 20px;
+    height: 20px;
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+    color: #666;
+    width: 100%;
+    padding-left: 20px;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.greeting strong {
+    color: #5B1400;
+}
+
+.profile-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background-color: #E5E5E5;
+    border-radius: 50%;
+    color: #5B1400;
+}
+
+/* Dashboard Overview */
+.dashboard-overview {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+}
+
+.dashboard-overview h1 {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.dashboard-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns content to the start */
+}
+
+.dashboard-overview p {
+    font-size: 16px;
+    color: #A3A3A3;
+    margin:  0; /* Remove default margins */
+    padding-bottom: 15px;
+}
+
+.dashboard-separator {
+    border: none;
+    border-top: 2px solid #ccc; /* Adjust color to match your theme */
+    margin-top: 10px;
+}
+
+
+.overview-cards {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+    margin-top: 15px;
+    justify-content: space-between; /* Distribute space between cards */
+}
+
+.card {
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    padding-left: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+    min-width: 220px;
+    /* max-width: 300px; */
+    height: auto;
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+
+.icon-wrapper {
+    width: 50px; 
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; 
+    margin-right: 20px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.vertical-divider {
+    width: 1px;
+    height: 24px;
+    background-color: #e0e0e0;
+    margin: 0 10px;
+}
+
+
+/* Specific background colors for each icon */
+.savings-icon-bg {
+    background-color: #FFC341;
+}
+
+.business-icon-bg {
+    background-color: #0CDE0C80;
+}
+
+.visitors-icon-bg {
+    background-color: #1B59F880;
+}
+
+/* Ensure the icon itself adjusts within the wrapper */
+.card-icon {
+    width: 24px; /* Adjust icon size as needed */
+    height: 24px;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: -5px; /* Adjust this value as needed to reduce space */
+}
+
+.card-content p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+    margin-top: 5px;
+}
+
+.card-content h3 {
+    margin: 5px 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    z-index: 1;
+    overflow: visible;
+}
+
+
+.card-content span {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+    color: #888;
+}
+
+/* Percentage styling */
+.percentage {
+    background-color: #FFA500CC;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    color: #FFF;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+
+.additional-insights {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr; /* Two smaller columns, one larger column in the first row */
+    grid-template-rows: auto auto; /* Two rows */
+    gap: 20px; /* Consistent gap between all components */
+    row-gap: 30px; /* Extra space between rows */
+}
+
+.insight-card {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    height: auto; /* Ensure cards take the full height of their grid cell */
+}
+
+/* First Row Components */
+.insight-card.total-customers {
+    grid-column: 1 / 2; /* First column of the first row */
+    grid-row: 1 / 2;
+}
+
+.insight-card.subscriptions {
+    grid-column: 2 / 3; /* Second column of the first row */
+    grid-row: 1 / 2;
+}
+
+.insight-card.savings-overview {
+    grid-column: 3 / 4; /* Third column of the first row, larger column */
+    grid-row: 1 / 2;
+}
+
+/* Second Row - Specific Styles for Half-Width Display */
+.insight-card.customer-activity {
+    grid-column: 1 / 2; /* Takes the first half of the row */
+    grid-row: 2 / 3;
+}
+
+.insight-card.loan-overview {
+    grid-column: 2 / 3; /* Takes the second half of the row */
+    grid-row: 2 / 3;
+}
+
+.insight-card:hover {
+    transform: translateY(-5px);
+}
+
+
+.insight-card.customer-activity,
+.insight-card.loan-overview {
+    grid-column: span 2; /* Full width in the second row */
+    height: auto;
+}
+
+.insight-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Chart Containers */
+.line-chart, .bar-chart, .donut-chart {
+    height: 150px;
+    border-radius: 10px;
+}
+
+.legend-color {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+/* Responsive Layout Adjustments */
+@media (max-width: 1024px) {
+    .logo-section {
+        flex-direction: row;
+        gap: 10px;
+    }
+    .additional-insights {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        width: 20%;
+    }
+    .main-content {
+        width: 80%;
+        padding: 15px;
+    }
+    .overview-cards, .additional-insights {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .overview-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two columns for medium screens */
+        gap: 10px;
+        overflow-x: hidden;
+    }
+    .card {
+        width: auto; /* Make cards take full width */
+    }
+    .icon-wrapper {
+        width: 40px; /* Adjust icon wrapper size */
+        height: 40px;
+    }
+    .card-content h3 {
+        font-size: 18px; /* Adjust font size for card content */
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-section {
+        flex-direction: row;
+        gap: 10px;
+        margin-bottom: -80px;
+    }
+    .sidebar {
+        width: 20%;
+    }
+    .main-content {
+        width: 80%;
+        padding: 10px;
+    }
+    .overview-cards, .additional-insights {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .overview-cards {
+        grid-template-columns: 1fr; /* Single column for smaller screens */
+        overflow-x: hidden;
+    }
+    .card {
+        width: auto; /* Full width for small screens */
+        padding: 12px;
+    }
+    .icon-wrapper {
+        width: 35px; /* Smaller icon size for mobile */
+        height: 35px;
+    }
+    .card-content h3 {
+        font-size: 16px; /* Adjust font size for better fit */
+    }
+    .percentage {
+        font-size: 10px; /* Adjust font size of percentage text */
+    }
+    .additional-insights {
+        display: flex;
+        flex-direction: column;
+        gap: 15px; /* Spacing between stacked components */
+    }
+
+    .insight-card {
+        width: auto; 
+        padding: 10px; /* Reduced padding for compact layout */
+        margin-bottom: 15px; /* Space between stacked cards */
+    }
+
+    .insight-card h3 {
+        font-size: 16px; /* Smaller heading font size */
+    }
+
+    .legend div span {
+        width: 8px;
+        height: 8px; /* Adjust legend dot size */
+    }
+}
+
+@media (max-width: 600px) {
+    .line-chart, .bar-chart, .donut-chart {
+        height: 100px;
+    }
+    .card, .insight-card {
+        padding: 12px;
+        width: 100%;
+    }
+    .search-bar {
+        max-width: 250px;
+        padding: 8px;
+    }
+    .sidebar-toggle {
+        left: 20px;
+        top: 10px;
+    }
+    .overview-cards {
+        gap: 8px; /* Reduce gap between cards */
+        overflow-x: hidden;
+    }
+    .icon-wrapper {
+        width: 30px; /* Further adjust icon size */
+        height: 30px;
+    }
+    .card {
+        padding: 10px; /* Reduce padding for better fit */
+    }
+    .card-content h3 {
+        font-size: 14px;
+    }
+    .card-content p, .card-content span {
+        font-size: 12px;
+    }
+    .additional-insights {
+        display: flex;
+        flex-direction: column;
+        gap: 15px; 
+    }
+
+    .insight-card {
+        padding: 8px;
+    }
+
+    .insight-card h3 {
+        font-size: 14px;
+    }
+
+    .legend div {
+        font-size: 10px;
+    }
+
+    /* Adjust chart heights to fit smaller screens */
+    .ResponsiveContainer {
+        height: 120px; /* Compact chart size */
+    }
+}
+
+.help-section {
+    border-top: 1px solid #e0e0e0; /* Adds a top border to the section */
+    padding-top: 15px; /* Adds spacing above the help section */
+    margin-top: 20px; /* Adds space between the previous content and help section */
+}
+
+.help-section .nav-item {
+    font-size: 12px;
+    padding: 8px;
+    color: #5B1400;
+}

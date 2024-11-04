@@ -1,0 +1,293 @@
+/* Container for the entire page */
+.register-container {
+    display: flex;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    gap: 10px; /* Space between the left and right sections */
+    background-color: #F8FAFC;
+}
+
+/* Left section with background image and right margin */
+.left-section {
+    width: 30%;
+    background-image: url('../assets/registerleft.PNG'); /* Ensure path is correct */
+    background-size: cover;
+    background-position: left center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+/* Right section for the register form */
+.right-section {
+    background-color: #F8FAFC;
+    flex-grow: 1;
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+}
+
+/* Dark Mode Toggle Icon */
+.dark-mode-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.dark-mode-toggle img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Dark mode styling */
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+body.dark-mode .register-container {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .left-section {
+    background-color: #333;
+    background-blend-mode: multiply;
+}
+
+body.dark-mode .right-section {
+    background-color: #333;
+    color: #ffffff;
+}
+
+body.dark-mode .input-group {
+    background-color: #555;
+}
+
+body.dark-mode .register-btn {
+    background-color: #ffa500;
+}
+
+body.dark-mode .google-btn {
+    background-color: #ffffff;
+    color: #000;
+    border-color: #aaa;
+}
+
+/* Back button styling */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.back-button img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+/* Logo styling */
+.logo {
+    width: 70px;
+    margin-bottom: 10px;
+}
+
+/* Register content styling */
+.register-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register-title {
+    color: #5B1400;
+    font-size: 24px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.register-subtitle {
+    color: #263238;
+    font-size: 12px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    background-color: #EBEBEB;
+    padding: 8px;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.input-group img {
+    margin-right: 10px;
+}
+
+.input-group input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #5B1400;
+}
+
+.remember-me label {
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+.register-btn {
+    background-color: #E58E1A;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 4px;
+}
+
+.or-section {
+    text-align: center;
+    margin-bottom: 5px;
+    width: 100%;
+    font-size: 12px;
+    color: #666;
+}
+
+.google-btn {
+    background-color: #FFFFFF;
+    color: black;
+    border: 1px solid #DBDBDB;
+    padding: 12px;
+    font-size: 14px; 
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.google-btn img {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+}
+
+.signin-text {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    margin-top: 10px;
+}
+
+.signin-text a {
+    color: #E58E1A;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signin-text a:hover {
+    color: #bf7000; /* Slightly darker shade for hover effect */
+}
+
+/* CAPTCHA Section */
+.captcha-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #263238;
+}
+
+.captcha-section p {
+    margin-right: 5px;
+}
+
+.captcha-image {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+/* Align the logo with the back button only on larger screens */
+@media (min-width: 769px) {
+    .logo {
+        position: absolute; /* Positioning absolute to align with back button */
+        top: 20px; /* Same height as the back button */
+        left: 50%; /* Center alignment within the right section */
+        transform: translateX(-50%); /* Centering adjustment */
+    }
+}
+
+/* Responsive styling for mobile and small screens */
+@media (max-width: 768px) {
+    .register-container {
+        flex-direction: row;
+        align-items: flex-start;
+        overflow: hidden;
+    }
+
+    .left-section {
+        width: 30%;
+        height: 100vh;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .right-section {
+        width: 70%;
+        max-width: 450px;
+        padding: 15px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo {
+        width: 70px;
+        margin-top: 10px; /* Restore top margin for small screens */
+        position: static; /* Reset positioning for small screens */
+        transform: none; /* Remove centering transform for small screens */
+    }
+
+    .register-title {
+        font-size: 20px;
+    }
+
+    .input-group,
+    .register-btn,
+    .google-btn {
+        max-width: 320px;
+    }
+
+    .signin-text {
+        font-size: 12px;
+    }
+
+    .captcha-section {
+        font-size: 12px;
+        margin-top: 15px;
+    }
+}

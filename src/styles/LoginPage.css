@@ -1,0 +1,296 @@
+/* Container for the entire page */
+.login-container {
+    display: flex;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    gap: 10px; /* Space between the left and right sections */
+    background-color: #F8FAFC;
+}
+
+/* Left section with background image and right margin */
+.left-section {
+    width: 30%;
+    background-image: url('../assets/left-hand.png'); /* Ensure path is correct */
+    background-size: contain; /* Keeps original aspect ratio without expanding */
+    background-position: left center; /* Aligns image to start from the left */
+    background-repeat: no-repeat; /* Prevents image from repeating */
+    height: 100vh; /* Ensures full viewport height coverage */
+}
+
+/* Right section for the login form */
+.right-section {
+    background-color: #F8FAFC;
+    flex-grow: 1;
+    width: 48%; /* Slightly reduced width to allow space on the left */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px; /* Reduced padding */
+    position: relative;
+}
+
+/* Dark Mode Toggle Icon */
+.dark-mode-toggle {
+    position: absolute;
+    top: 10px; /* Adjusted to reduce space */
+    right: 10px;
+    cursor: pointer;
+}
+
+.dark-mode-toggle img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Dark mode styling */
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+body.dark-mode .login-container {
+    background-color: #1e1e1e; /* Dark background for the whole page */
+}
+
+body.dark-mode .left-section {
+    background-color: #333; /* Dark background for left section if image is not covering */
+    background-blend-mode: multiply; /* Blend image with dark background */
+}
+
+body.dark-mode .right-section {
+    background-color: #333;
+    color: #ffffff;
+}
+
+body.dark-mode .input-group {
+    background-color: #555;
+}
+
+body.dark-mode .login-btn {
+    background-color: #ffa500;
+}
+
+body.dark-mode .google-btn {
+    background-color: #ffffff;
+    color: #000;
+    border-color: #aaa;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.back-button img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.logo {
+    width: 70px; /* Reduced size */
+    margin-bottom: 10px; /* Reduced spacing */
+}
+
+.login-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-title {
+    color: #5B1400;
+    font-size: 24px; /* Reduced font size */
+    margin-bottom: 8px; /* Reduced spacing */
+}
+
+.login-subtitle {
+    color: #263238;
+    font-size: 12px; /* Reduced font size */
+    margin-bottom: 15px; /* Reduced spacing */
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    background-color: #EBEBEB;
+    padding: 8px; /* Reduced padding */
+    width: 100%;
+    margin-bottom: 15px; /* Reduced spacing */
+    border-radius: 5px;
+}
+
+.input-group img {
+    margin-right: 10px;
+}
+
+.input-group input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+}
+
+.forgot-password {
+    text-align: right;
+    margin-bottom: 15px; /* Reduced spacing */
+    width: 100%;
+}
+
+.forgot-password a {
+    color: #E58E1A;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.login-btn {
+    background-color: #E58E1A;
+    color: white;
+    padding: 12px; /* Reduced padding */
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px; /* Reduced font size */
+    cursor: pointer;
+    margin-bottom: 4px; /* Reduced spacing */
+}
+
+.or-section {
+    text-align: center;
+    margin-bottom: 4px; /* Reduced spacing */
+    width: 100%;
+    font-size: 11px; /* Reduced font size */
+    color: #666;
+}
+
+.google-btn {
+    background-color: #FFFFFF;
+    color: black;
+    border: 1px solid #DBDBDB;
+    padding: 12px; /* Reduced padding */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 14px; /* Reduced font size */
+    cursor: pointer;
+}
+
+.google-btn img {
+    width: 18px; /* Adjust width as desired */
+    height: 18px; /* Adjust height as desired */
+    margin-right: 10px;
+}
+
+.signup-text {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+}
+
+.signup-text a {
+    color: #E58E1A;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.signup-text a:hover {
+    color: #bf7000; /* Slightly darker shade for hover effect */
+}
+
+
+/* CAPTCHA Section */
+.captcha-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px; /* Reduced spacing */
+    font-size: 12px; /* Reduced font size */
+    color: #263238;
+}
+
+.captcha-section p {
+    margin-right: 5px;
+}
+
+.captcha-image {
+    width: 20px; /* Reduced CAPTCHA size */
+    height: 20px;
+    margin-right: 8px;
+}
+
+/* Responsive styling for mobile and small screens */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: row;
+        align-items: flex-start;
+        overflow: hidden;
+    }
+
+    /* Left section with reduced width on small screens */
+    .left-section {
+        width: 30%; /* Keeps the image on the left with reduced width */
+        height: 100vh; /* Full height */
+        background-position: center; /* Adjust alignment */
+        background-size: cover; /* Ensures it fills the section */
+    }
+
+    /* Right section with reduced padding and width for small screens */
+    .right-section {
+        width: 70%; /* Expands to fill remaining space */
+        max-width: 320px;
+        padding: 15px; /* Reduced padding */
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Adjusting inner content for small screens */
+    .login-title {
+        font-size: 20px; /* Further reduced font size */
+        text-align: center;
+    }
+
+    .input-group {
+        font-size: 12px; /* Further reduced font size */
+        max-width: 320px;
+        margin: 5px 0;
+    }
+
+    .forgot-password {
+        text-align: right;
+        width: 100%;
+        max-width: 320px;
+        font-size: 12px;
+        margin-top: 10px;
+    }
+
+    .login-btn,
+    .google-btn {
+        font-size: 14px;
+        padding: 10px; /* Further reduced padding */
+        max-width: 320px;
+        margin: 5px 0;
+    }
+
+    .or-section {
+        font-size: 12px;
+        margin: 5px 0;
+        text-align: center;
+    }
+
+    .signup-text {
+        font-size: 12px;
+        margin-top: 10px;
+        text-align: center;
+    }
+}
